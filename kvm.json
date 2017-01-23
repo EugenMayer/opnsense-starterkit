@@ -65,5 +65,5 @@
       ],
       "execute_command": "chmod +x {{ .Path }}; /bin/sh -c '{{ .Vars }} {{ .Path }}'"
     }
-  ],
+  ]
 }
