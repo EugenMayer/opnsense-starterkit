@@ -27,6 +27,8 @@ This is yet needed since packer cannot (yet) download and unpack isos, it only c
 
 Of course, chaneg the configuration to your likings, but very specificly change
 
+ - **!!!! change your root password !!!!**
+ - **!!!! change your root password !!!!**
  - secure your SSH port which yet accessible through WAN
  - secure your webGUI port which yet accessible through WAN
  - enable bogus/private ip blocking on WAN which is disabled
@@ -34,6 +36,22 @@ Of course, chaneg the configuration to your likings, but very specificly change
 
 Since this has been adjusted so you can deploy a cloud image at all, right :)
 
-# TODO:
+## Debug
 
- - Instead of running the installer, boot into the live system, replace `/conf/config.xml` with the template, then run `/usr/local/etc/rc.installer` to install with the config.xml in charge. This replaces the extra need of an reboot
+add this to the vbox to be able to access the box
+
+```
+		,
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--natpf1",
+          "managinggui,tcp,127.0.0.1,10443,,443"
+        ],
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--natpf1",
+          "ssh,tcp,127.0.0.1,10022,,22"
+        ]
+```

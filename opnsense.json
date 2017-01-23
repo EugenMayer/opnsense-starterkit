@@ -25,13 +25,64 @@
         "reboot<enter>"
       ],
       "disk_size": 8192,
-      "guest_additions_mode": "disable",
-      "guest_os_type": "FreeBSD_64",
       "iso_checksum": "a05ea54fd0bba9e637e46188587023d3ed96c152",
       "iso_checksum_type": "sha1",
       "iso_urls": ["./opnsense.iso"],
       "shutdown_command": "shutdown<enter>",
+      "vm_name": "opnsense",
+      "ssh_port": 22,
+      "ssh_username": "root",
+      "ssh_password": "opnsense",
+      "ssh_wait_timeout": "10000s",
+      "output_directory": "output",
+
+      "type": "qemu",
+      "accelerator": "none",
+      "format": "raw",
+      "headless": "true",
+      "qemuargs": [[ "-m", "1024M" ],[ "-smp", "4" ]],
+      "disk_interface": "virtio"
+    },
+    {
+      "http_directory": "http",
+      "http_port_min": "8100",
+      "boot_wait": "4s",
+      "boot_command": [
+        "<wait5>1",
+        "<wait10><wait><wait>I",
+        "<wait5><enter>",
+        "<wait><enter>",
+        "<wait1><enter>",
+        "<wait1><enter>",
+        "<wait1><enter>",
+        "<wait5><wait10><wait10><wait10><wait10>",
+        "<enter>",
+        "<wait10><wait><wait>1<enter>",
+        "<wait10><wait10><wait10><wait10><wait10><wait10><wait10><wait10><wait10><wait10><wait10><wait10><wait10>",
+        "root<enter>",
+        "opnsense<enter>",
+        "<wait>8<enter>",
+        "<wait5>dhclient em0<enter><wait10>",
+        "telnet {{ .HTTPIP }} {{ .HTTPPort }} | sed '1,/^$/d' >/conf/config.xml<wait><enter>",
+        "GET /config.xml HTTP/1.0<enter><enter>",
+        "reboot<enter>"
+      ],
+      "disk_size": 8192,
+      "iso_checksum": "a05ea54fd0bba9e637e46188587023d3ed96c152",
+      "iso_checksum_type": "sha1",
+      "iso_urls": ["./opnsense.iso"],
+      "shutdown_command": "shutdown<enter>",
+      "vm_name": "opnsense",
+      "ssh_port": 22,
+      "ssh_username": "root",
+      "ssh_password": "opnsense",
+      "ssh_wait_timeout": "10000s",
+      "output_directory": "output",
+
+      "virtualbox_version_file": ".vbox_version",
       "type": "virtualbox-iso",
+      "guest_additions_mode": "disable",
+      "guest_os_type": "FreeBSD_64",
       "vboxmanage": [
         [
           "modifyvm",
@@ -62,26 +113,8 @@
           "{{.Name}}",
           "--boot2",
           "dvd"
-        ],
-        [
-          "modifyvm",
-          "{{.Name}}",
-          "--natpf1",
-          "managinggui,tcp,127.0.0.1,10443,,443"
-        ],
-        [
-          "modifyvm",
-          "{{.Name}}",
-          "--natpf1",
-          "ssh,tcp,127.0.0.1,10022,,22"
         ]
-      ],
-      "virtualbox_version_file": ".vbox_version",
-      "vm_name": "opnsense",
-      "ssh_port": 22,
-      "ssh_username": "root",
-      "ssh_password": "opnsense",
-      "ssh_wait_timeout": "100000s"
+      ]
     }
   ],
   "provisioners": [
@@ -91,6 +124,16 @@
         "scripts/base.sh"
       ],
       "execute_command": "chmod +x {{ .Path }}; /bin/sh -c '{{ .Vars }} {{ .Path }}'"
+    }
+  ],
+  "post-processors": [
+    {
+      "type": "shell-local",
+      "inline": ["cd output && VBoxManage convertdd opnsense-disk1.vmdk disk.raw --format RAW "]
+    },
+    {
+      "type": "shell-local",
+      "inline": ["cd output && tar czvf disk.tar.gz disk.raw "]
     }
   ]
 }
