@@ -37,7 +37,6 @@
       "output_directory": "output",
 
       "type": "qemu",
-      "accelerator": "none",
       "format": "raw",
       "headless": "true",
       "qemuargs": [[ "-m", "1024M" ],[ "-smp", "4" ]],
