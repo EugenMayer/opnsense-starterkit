@@ -46,10 +46,10 @@
         [ "-m", "1024M" ],
         [
           "-netdev",
-          "user,id=inet,",
+          " user,id=inet,",
           "",
           "-netdev",
-          "user,id=intnet,",
+          " user,id=intnet,",
           ""
         ],
         [ "-device", "virtio-net,netdev=inet" ],
