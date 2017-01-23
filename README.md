@@ -1,7 +1,7 @@
 Use the packer based project to build your own opnsense images, e.g. for google cloud compute or AWS
 
 ## requirements
- - Packer
+ - Install [Packer](https://www.packer.io/docs/installation.html)
  - You need to download the opnsense.iso (16.7) and unpack it into this repo as opnsense.iso
  
 ```
