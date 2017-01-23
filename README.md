@@ -27,3 +27,7 @@ Of course, chaneg the configuration to your likings, but very specificly change
  - disable SSH if you do not need it
 
 Since this has been adjusted so you can deploy a cloud image at all, right :)
+
+# TODO:
+
+ - Instead of running the installer, boot into the live system, replace `/conf/config.xml` with the template, then run `/usr/local/etc/rc.installer` to install with the config.xml in charge. This replaces the extra need of an reboot
