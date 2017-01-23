@@ -41,7 +41,20 @@
       "format": "raw",
       "headless": "true",
       "qemuargs": [[ "-m", "1024M" ],[ "-smp", "4" ]],
-      "disk_interface": "virtio"
+      "disk_interface": "virtio",
+      "net_device": "virtio-net",
+      "qemuargs": [
+        [ "-m", "1024M" ],
+        [
+          "-netdev",
+          "user,id=inet,",
+          "-netdev",
+          "user,id=intnet,",
+          ""
+        ],
+        [ "-device", "virtio-net,netdev=inet" ],
+        [ "-device", "virtio-net,netdev=intnet" ]
+      ]
     }
   ],
   "provisioners": [
