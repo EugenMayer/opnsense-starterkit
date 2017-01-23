@@ -37,6 +37,7 @@
       "output_directory": "output",
 
       "type": "qemu",
+      "accelerator": "kvm",
       "format": "raw",
       "headless": "false",
       "disk_interface": "virtio",
