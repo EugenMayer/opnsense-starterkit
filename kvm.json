@@ -47,6 +47,7 @@
         [
           "-netdev",
           "user,id=inet,",
+          "",
           "-netdev",
           "user,id=intnet,",
           ""
