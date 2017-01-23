@@ -1,4 +1,10 @@
-Use the packer based project to build your own opnsense images, e.g. for google cloud compute or AWS
+## WAT
+
+Create a **deployable image** of opensense for **google compute** or **AWS EC**.
+You build from the offiicial iso, so no tampering with the files. A customer config.xml is deployed so you can SSH
+boot into your box, see "after deployed" to see what you need to revert so you are back to the default
+
+You will build using [Packer](https://www.packer.io/docs/installation.html)
 
 ## requirements
  - Install [Packer](https://www.packer.io/docs/installation.html)
