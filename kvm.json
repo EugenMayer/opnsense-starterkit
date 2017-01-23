@@ -5,7 +5,7 @@
       "http_port_min": "8100",
       "boot_wait": "4s",
       "boot_command": [
-        "<wait5>1",
+        "<wait10>1",
         "<wait10><wait><wait>I",
         "<wait5><enter>",
         "<wait><enter>",
@@ -38,8 +38,7 @@
 
       "type": "qemu",
       "format": "raw",
-      "headless": "true",
-      "qemuargs": [[ "-m", "1024M" ],[ "-smp", "4" ]],
+      "headless": "false",
       "disk_interface": "virtio",
       "net_device": "virtio-net",
       "qemuargs": [
