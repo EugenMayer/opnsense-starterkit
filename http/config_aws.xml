@@ -222,6 +222,7 @@
       <nohttpreferercheck>1</nohttpreferercheck>
       <port/>
       <ssl-ciphers/>
+      <nodnsrebindcheck>1</nodnsrebindcheck>
     </webgui>
     <disablenatreflection>yes</disablenatreflection>
     <disableconsolemenu>1</disableconsolemenu>
@@ -505,7 +506,7 @@
   </filter>
   <revision>
     <username>root@79.230.48.220</username>
-    <time>1485269593.6501</time>
+    <time>1485270446.2806</time>
     <description>/system_advanced_admin.php made changes</description>
   </revision>
   <OPNsense>
