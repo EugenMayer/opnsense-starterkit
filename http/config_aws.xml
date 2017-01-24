@@ -204,10 +204,10 @@
       <descr>System Administrator</descr>
       <scope>system</scope>
       <groupname>admins</groupname>
-      <password>$2b$10$jEtKrvnMNDBTlsFNoBIYd.9S3wJPiIncjOh37vbPpak18lp62KgQW</password>
+      <password>$2b$10$YRVoF4SgskIsrXOvOQjGieB9XqHPRra9R7d80B3BZdbY/j21TwBfS</password>
       <uid>0</uid>
       <expires/>
-      <authorizedkeys>c3NoLXJzYSBBQUFBQjNOemFDMXljMkVBQUFBREFRQUJBQUFCQVFDaGNXTHM0eS9MVnpobnlYZXZqSlN4QkJHV3RLV1lGUTJtZ2Zpb0VOU3hpdWVOT0ZjdkFBa083bXRrditxS0p2TTA5OS9PaTFCd2ZSOEIwRDhMWG9FeGhWTkRSMmZtSGFIZ3FVSGdVS1pyb3pLR3NJamFzMUF4MmR2MGpEUHZtdEJMOE8yWmNmTEVnMEkxQTFaajFFUzJ0ZWJaajFEdVE2bFJxYjBDa1ZLQ3dhTHhXaUk3VFVWM1ozZE1QNkcrTVNjaldFenRaZDNwcGw4KzZPbWlYM2xFd2JMMXdoeHNFOXlKeHN6dE9mTm5mK3ZUQ01lMFI5WWxsMHJnYTc2eWNHWDhuRkJ1OG1pWTFyYmhVeTAyWlhXY1gxcHVrb0hqMDlMQUd0blgydmxWVkhEY01FZUs4dkpCbDJ1a0JDSjl0SXNqbUxORk1DMmY4YXBiSE9xQi96amQgZXVnZW4ubWF5ZXJAa29udGV4dHdvcmsuZGUNCg==</authorizedkeys>
+      <authorizedkeys></authorizedkeys>
       <ipsecpsk/>
       <otp_seed/>
     </user>
