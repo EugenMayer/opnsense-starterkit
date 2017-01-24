@@ -33,6 +33,7 @@ Of course, chaneg the configuration to your likings, but very specificly change
  - secure your webGUI port which yet accessible through WAN
  - enable bogus/private ip blocking on WAN which is disabled
  - disable SSH if you do not need it
+ - disable SSH password access after you deployed your ssh key, if you leave SSH enabled
 
 Since this has been adjusted so you can deploy a cloud image at all, right :)
 
