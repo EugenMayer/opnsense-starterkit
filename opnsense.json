@@ -3,12 +3,13 @@
     {
       "http_directory": "http",
       "http_port_min": "8100",
-      "boot_wait": "4s",
+      "boot_wait": "3s",
       "boot_command": [
-        "<wait5>1",
-        "<wait10><wait><wait>I",
-        "<wait5><enter>",
+        "1",
+        "<wait10><wait><wait10><enter>",
         "<wait><enter>",
+        "<wait1><enter>",
+        "<wait1><enter>",
         "<wait1><enter>",
         "<wait1><enter>",
         "<wait1><enter>",
@@ -25,7 +26,7 @@
         "reboot<enter>"
       ],
       "disk_size": 8192,
-      "iso_checksum": "a05ea54fd0bba9e637e46188587023d3ed96c152",
+      "iso_checksum": "b81bcbadb0739aca7a180b01d72154ec57da7d87",
       "iso_checksum_type": "sha1",
       "iso_urls": ["./opnsense.iso"],
       "shutdown_command": "shutdown<enter>",
@@ -70,6 +71,18 @@
           "{{.Name}}",
           "--boot2",
           "dvd"
+        ],
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--natpf1",
+          "managinggui,tcp,127.0.0.1,10443,,443"
+        ],
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--natpf1",
+          "ssh,tcp,127.0.0.1,10022,,22"
         ]
       ]
     }
@@ -79,13 +92,6 @@
       "type": "shell",
       "scripts": [
         "scripts/base.sh"
-      ],
-      "execute_command": "chmod +x {{ .Path }}; /bin/sh -c '{{ .Vars }} {{ .Path }}'"
-    },
-    {
-      "type": "shell",
-      "scripts": [
-        "scripts/google_compute.sh"
       ],
       "execute_command": "chmod +x {{ .Path }}; /bin/sh -c '{{ .Vars }} {{ .Path }}'"
     }

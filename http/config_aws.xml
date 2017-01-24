@@ -423,83 +423,74 @@
   <filter>
     <rule>
       <type>pass</type>
+      <interface>wan</interface>
+      <ipprotocol>inet</ipprotocol>
+      <statetype>keep state</statetype>
+      <descr>Allow incoming WebGUI access</descr>
+      <protocol>tcp</protocol>
+      <source>
+        <any>1</any>
+      </source>
+      <destination>
+        <any>1</any>
+        <port>443</port>
+      </destination>
+      <updated>
+        <username>root@10.0.2.2</username>
+        <time>1485290113.6218</time>
+        <description>/firewall_rules_edit.php made changes</description>
+      </updated>
+      <created>
+        <username>root@10.0.2.2</username>
+        <time>1485289132.5636</time>
+        <description>/firewall_rules_edit.php made changes</description>
+      </created>
+    </rule>
+    <rule>
+      <type>pass</type>
+      <interface>wan</interface>
+      <ipprotocol>inet</ipprotocol>
+      <statetype>keep state</statetype>
+      <descr>Allow access to the SSH server for now</descr>
+      <protocol>tcp</protocol>
+      <source>
+        <any>1</any>
+      </source>
+      <destination>
+        <any>1</any>
+        <port>22</port>
+      </destination>
+      <updated>
+        <username>root@10.0.2.2</username>
+        <time>1485290129.9643</time>
+        <description>/firewall_rules_edit.php made changes</description>
+      </updated>
+      <created>
+        <username>root@10.0.2.2</username>
+        <time>1485289300.646</time>
+        <description>/firewall_rules_edit.php made changes</description>
+      </created>
+    </rule>
+    <rule>
+      <type>pass</type>
       <interface>lan</interface>
       <ipprotocol>inet</ipprotocol>
       <statetype>keep state</statetype>
-      <direction>any</direction>
-      <quick>yes</quick>
-      <floating>yes</floating>
-      <protocol>any</protocol>
+      <descr>Allow LAN to WAN communication</descr>
       <source>
-        <network>lan</network>
+        <any>1</any>
       </source>
       <destination>
-        <any>1</any>
+        <network>wan</network>
       </destination>
       <updated>
         <username>root@10.0.2.2</username>
-        <time>1485165910.8983</time>
+        <time>1485290191.4362</time>
         <description>/firewall_rules_edit.php made changes</description>
       </updated>
       <created>
         <username>root@10.0.2.2</username>
-        <time>1485165910.8984</time>
-        <description>/firewall_rules_edit.php made changes</description>
-      </created>
-    </rule>
-    <rule>
-      <type>pass</type>
-      <interface>wan</interface>
-      <ipprotocol>inet</ipprotocol>
-      <statetype>keep state</statetype>
-      <direction>any</direction>
-      <quick>yes</quick>
-      <floating>yes</floating>
-      <protocol>tcp</protocol>
-      <source>
-        <any>1</any>
-        <port>443</port>
-      </source>
-      <destination>
-        <any>1</any>
-        <port>443</port>
-      </destination>
-      <updated>
-        <username>root@10.0.2.2</username>
-        <time>1485165910.8983</time>
-        <description>/firewall_rules_edit.php made changes</description>
-      </updated>
-      <created>
-        <username>root@10.0.2.2</username>
-        <time>1485165910.8984</time>
-        <description>/firewall_rules_edit.php made changes</description>
-      </created>
-    </rule>
-    <rule>
-      <type>pass</type>
-      <interface>wan</interface>
-      <ipprotocol>inet</ipprotocol>
-      <statetype>keep state</statetype>
-      <direction>any</direction>
-      <quick>yes</quick>
-      <floating>yes</floating>
-      <protocol>tcp</protocol>
-      <source>
-        <any>1</any>
-        <port>22</port>
-      </source>
-      <destination>
-        <any>1</any>
-        <port>22</port>
-      </destination>
-      <updated>
-        <username>root@10.0.2.2</username>
-        <time>1485165910.8983</time>
-        <description>/firewall_rules_edit.php made changes</description>
-      </updated>
-      <created>
-        <username>root@10.0.2.2</username>
-        <time>1485165910.8984</time>
+        <time>1485289862.1625</time>
         <description>/firewall_rules_edit.php made changes</description>
       </created>
     </rule>
