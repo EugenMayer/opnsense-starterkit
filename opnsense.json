@@ -81,6 +81,13 @@
         "scripts/base.sh"
       ],
       "execute_command": "chmod +x {{ .Path }}; /bin/sh -c '{{ .Vars }} {{ .Path }}'"
+    },
+    {
+      "type": "shell",
+      "scripts": [
+        "scripts/google_compute.sh"
+      ],
+      "execute_command": "chmod +x {{ .Path }}; /bin/sh -c '{{ .Vars }} {{ .Path }}'"
     }
   ],
   "post-processors": [
