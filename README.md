@@ -11,9 +11,9 @@ You will build using [Packer](https://www.packer.io/docs/installation.html)
  - You need to download the opnsense.iso (16.7) and unpack it into this repo as opnsense.iso
  
 ```
-wget https://mirror.auf-feindgebiet.de/opnsense/releases/mirror/OPNsense-16.7-OpenSSL-cdrom-amd64.iso.bz2
-bunzip2 OPNsense-16.7-OpenSSL-cdrom-amd64.iso.bz2
-mv OPNsense-16.7-OpenSSL-cdrom-amd64.iso opnsense.iso
+wget https://opnsense.c0urier.net/releases/17.7/OPNsense-17.7.5-OpenSSL-dvd-amd64.iso.bz2
+bunzip2 OPNsense-17.7.5-OpenSSL-dvd-amd64.iso.bz2
+mv OPNsense-17.7.5-OpenSSL-dvd-amd64.iso opnsense.iso
 ```
 
 This is yet needed since packer cannot (yet) download and unpack isos, it only can download non-archived isos

@@ -1,89 +1,65 @@
 {
+  "variables": {
+    "http_host": "{{env `HTTP_DATA_HOST`}}",
+    "headless": "false",
+    "config_file": "config.xml",
+    "cloud": "nocloud",
+    "iso_sha256_checksum": "29d16c6e03c2dbe1facc43d719150d91b84fa06baa834cfe8299212b52933c06",
+    "iso_url": "./opnsense.iso",
+    "disk_size": "8192"
+  },
   "builders": [
     {
-      "http_directory": "http",
-      "http_port_min": "8100",
-      "boot_wait": "3s",
+      "headless": "{{ user `headless` }}",
+      "keep_registered": false,
+      "skip_export": false,
       "boot_command": [
-        "1",
-        "<wait10><wait><wait10><enter>",
-        "<wait><enter>",
-        "<wait><enter>",
-        "<wait><enter>",
-        "<wait><enter>",
-        "<wait><enter>",
-        "<wait><enter>",
-        "<wait10><wait10><wait10><wait10><wait10><wait10><wait10><enter>",
-        "<wait10><wait><wait>1<enter>",
-        "<wait10><wait10><wait10><wait10><wait10><wait10><wait10><wait10><wait10><wait10><wait10><wait10><wait10>",
+        "<wait10><wait10><wait10><wait10><wait10>",
+        "<wait10><wait10><wait10><wait10>",
+        "installer<enter>",
+        "opnsense<enter><wait><wait>",
+        "<enter>",
+        "<enter>",
+        "<enter>",
+        "<enter>",
+        "<enter><wait10><wait10><wait10><wait10><wait10>",
+        "opnsense<enter>",
+        "opnsense<enter><wait>",
+        "<enter><wait>",
+        "<enter><wait10><wait10><wait10><wait10><wait10><wait10><wait10><wait10><wait10><wait10>",
         "root<enter>",
         "opnsense<enter>",
-        "<wait>8<enter>",
-        "<wait5>dhclient em0<enter><wait10>",
-        "telnet {{ .HTTPIP }} {{ .HTTPPort }} | sed '1,/^$/d' >/conf/config.xml<wait><enter>",
-        "GET /config.xml HTTP/1.0<enter><enter>",
-        "echo 'PasswordAuthentication yes' >> /usr/local/etc/ssh/sshd_config<enter>",
-        "reboot<enter>"
+        "2<enter>y<enter><enter><enter><enter><wait10>",
+        "8<enter>",
+        "echo 'CONF_FILE_URL=http://{{user `http_host`}}:{{ .HTTPPort }}/{{user `config_file`}}' > provision_envs<enter><wait>",
+        "route add -net 0.0.0.0 10.0.2.15<enter>",
+        "service openssh onestart<enter>"
       ],
-      "disk_size": 8192,
-      "iso_checksum": "b81bcbadb0739aca7a180b01d72154ec57da7d87",
-      "iso_checksum_type": "sha1",
-      "iso_urls": ["./opnsense.iso"],
-      "shutdown_command": "shutdown<enter>",
+      "http_directory": "http",
+      "boot_wait": "3s",
+      "disk_size": "{{user `disk_size`}}",
+      "iso_checksum": "{{user `iso_sha256_checksum`}}",
+      "iso_checksum_type": "sha256",
+      "iso_urls": ["{{user `iso_url`}}"],
+      "shutdown_command": "shutdown -p now",
+      "output_directory": "output/{{build_type}}",
       "vm_name": "opnsense",
-      "ssh_port": 22,
       "ssh_username": "root",
       "ssh_password": "opnsense",
       "ssh_wait_timeout": "10000s",
-      "output_directory": "output",
-
-      "virtualbox_version_file": ".vbox_version",
       "type": "virtualbox-iso",
       "guest_additions_mode": "disable",
       "guest_os_type": "FreeBSD_64",
       "vboxmanage": [
-        [
-          "modifyvm",
-          "{{.Name}}",
-          "--memory",
-          "1024"
-        ],
-        [
-          "modifyvm",
-          "{{.Name}}",
-          "--nic2",
-          "intnet"
-        ],
-        [
-          "modifyvm",
-          "{{.Name}}",
-          "--cpus",
-          "1"
-        ],
-        [
-          "modifyvm",
-          "{{.Name}}",
-          "--boot1",
-          "disk"
-        ],
-        [
-          "modifyvm",
-          "{{.Name}}",
-          "--boot2",
-          "dvd"
-        ],
-        [
-          "modifyvm",
-          "{{.Name}}",
-          "--natpf1",
-          "managinggui,tcp,127.0.0.1,10443,,443"
-        ],
-        [
-          "modifyvm",
-          "{{.Name}}",
-          "--natpf1",
-          "ssh,tcp,127.0.0.1,10022,,22"
-        ]
+        [ "modifyvm", "{{.Name}}", "--memory", "1024" ],
+        ["modifyvm", "{{.Name}}", "--nic2", "intnet"],
+        [ "modifyvm", "{{.Name}}", "--cpus", "1" ],
+        [ "modifyvm", "{{.Name}}", "--boot1", "disk" ],
+        [ "modifyvm", "{{.Name}}", "--boot2", "dvd" ],
+        [ "modifyvm", "{{.Name}}", "--audio", "none" ],
+        [ "modifyvm", "{{.Name}}", "--usb", "off" ],
+        [ "modifyvm", "{{.Name}}", "--natpf1", "managinggui,tcp,127.0.0.1,10443,,443"],
+        [ "modifyvm", "{{.Name}}", "--natpf1", "ssh,tcp,127.0.0.1,10022,,22"]
       ]
     }
   ],
@@ -91,19 +67,9 @@
     {
       "type": "shell",
       "scripts": [
-        "scripts/base.sh"
+        "scripts/provision.sh"
       ],
-      "execute_command": "chmod +x {{ .Path }}; /bin/sh -c '{{ .Vars }} {{ .Path }}'"
-    }
-  ],
-  "post-processors": [
-    {
-      "type": "shell-local",
-      "inline": ["cd output && VBoxManage convertdd opnsense-disk1.vmdk disk.raw --format RAW "]
-    },
-    {
-      "type": "shell-local",
-      "inline": ["cd output && tar czvf disk.tar.gz disk.raw "]
+      "execute_command": "chmod +x {{ .Path }}; env {{ .Vars }} {{ .Path }}"
     }
   ]
 }

@@ -1,4 +1,6 @@
 packer_cache
-opnsense.iso
+OPNsense*.iso
+opnsense*.iso
+OPNsense*.bz2
 output
 .idea/workspace.xml
