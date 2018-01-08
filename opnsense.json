@@ -29,7 +29,7 @@
         "<enter>",
         "<enter>",
         "<wait10><wait10><wait10><wait10><wait10><wait10>",
-        "opnsense<enter>",
+        "root<enter>",
         "opnsense<enter>",
         "<wait>8<enter>",
         "<wait5>dhclient em0<enter><wait10>",
