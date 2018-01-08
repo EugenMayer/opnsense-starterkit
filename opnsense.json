@@ -17,22 +17,14 @@
         "<wait10><wait10><wait10><wait10><wait10>",
         "<wait10><wait10><wait10><wait10>",
         "installer<enter>",
-        "opnsense<enter><wait><wait>",
-        "<enter>",
-        "<enter>",
-        "<enter>",
-        "<enter>",
-        "<enter><wait10><wait10><wait10><wait10><wait10>",
-        "opnsense<enter>",
-        "opnsense<enter><wait>",
-        "<enter><wait>",
-        "<enter><wait10><wait10><wait10><wait10><wait10><wait10><wait10><wait10><wait10><wait10>",
+        "<enter><wait10><wait10><wait10><wait10><wait10><wait10><wait10><wait10>",
         "root<enter>",
         "opnsense<enter>",
-        "2<enter>y<enter><enter><enter><enter><wait10>",
-        "8<enter>",
-        "echo 'CONF_FILE_URL=http://{{user `http_host`}}:{{ .HTTPPort }}/{{user `config_file`}}' > provision_envs<enter><wait>",
-        "route add -net 0.0.0.0 10.0.2.15<enter>",
+        "<wait>8<enter>",
+        "<wait5>dhclient em0<enter><wait10>",
+        "telnet {{ .HTTPIP }} {{ .HTTPPort }} | sed '1,/^$/d' >/conf/config.xml<wait><enter>",
+        "GET /{{user `config_file`}} HTTP/1.0<enter><enter>",
+        "echo 'PasswordAuthentication yes' >> /usr/local/etc/ssh/sshd_config<enter>",
         "service openssh onestart<enter>"
       ],
       "http_directory": "http",
@@ -67,9 +59,9 @@
     {
       "type": "shell",
       "scripts": [
-        "scripts/provision.sh"
+        "scripts/base.sh"
       ],
-      "execute_command": "chmod +x {{ .Path }}; env {{ .Vars }} {{ .Path }}"
+      "execute_command": "chmod +x {{ .Path }}; /bin/sh -c '{{ .Vars }} {{ .Path }}'"
     }
   ]
 }
