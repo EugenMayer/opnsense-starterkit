@@ -20,7 +20,14 @@ This is yet needed since packer cannot (yet) download and unpack isos, it only c
 
 ## build
 
+    # general
     packer build opnsense.json
+    
+    # aws
+    packer build --var 'config_file=config-aws.xml' opnsense.json 
+
+    # gce
+    packer build --var 'config_file=config-gce.xml' opnsense.json 
     
     
 ## after you deployed the image
