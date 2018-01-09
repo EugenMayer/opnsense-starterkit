@@ -1,0 +1,84 @@
+{
+  "variables": {
+    "http_host": "{{env `HTTP_DATA_HOST`}}",
+    "headless": "false",
+    "config_file": "config.xml",
+    "iso_sha256_checksum": "29d16c6e03c2dbe1facc43d719150d91b84fa06baa834cfe8299212b52933c06",
+    "iso_url": "./opnsense.iso",
+    "disk_size": "8192"
+  },
+  "builders": [
+    {
+      "headless": "{{ user `headless` }}",
+      "keep_registered": false,
+      "skip_export": false,
+      "boot_command": [
+        "<wait10><wait10><wait10><wait10><wait10>",
+        "<wait10><wait10><wait10><wait10>",
+        "installer<enter>",
+        "opnsense<enter><wait10>",
+        "<enter>",
+        "<enter>",
+        "<enter>",
+        "<enter>",
+        "<enter><wait10><wait10><wait10><wait10><wait10><wait10>",
+        "<enter>",
+        "<enter>",
+        "<enter>",
+        "<enter>",
+        "<enter>",
+        "<wait10><wait10><wait10><wait10><wait10><wait10>",
+        "root<enter>",
+        "opnsense<enter>",
+        "<wait>8<enter>",
+        "<wait5>dhclient em0<enter><wait10>",
+        "telnet {{ .HTTPIP }} {{ .HTTPPort }} | sed '1,/^$/d' >/conf/config.xml<wait><enter>",
+        "GET /{{user `config_file`}} HTTP/1.0<enter><enter>",
+        "echo 'PasswordAuthentication yes' >> /usr/local/etc/ssh/sshd_config<enter>",
+        "service openssh onestart<enter>"
+      ],
+      "http_directory": "http",
+      "boot_wait": "3s",
+      "disk_size": "{{user `disk_size`}}",
+      "iso_checksum": "{{user `iso_sha256_checksum`}}",
+      "iso_checksum_type": "sha256",
+      "iso_urls": ["{{user `iso_url`}}"],
+      "shutdown_command": "shutdown -p now",
+      "output_directory": "output/{{build_type}}",
+      "vm_name": "opnsense",
+      "ssh_username": "root",
+      "ssh_password": "opnsense",
+      "ssh_wait_timeout": "10000s",
+
+      "accelerator": "none",
+      "type": "qemu",
+      "format": "raw",
+      "disk_interface": "virtio",
+      "net_device": "virtio-net",
+      "qemuargs": [
+        [ "-m", "1024M" ],
+        [
+          "-netdev",
+          "user,id=inet,",
+          ""
+        ],
+        [
+          "-netdev",
+          "user,id=intnet,",
+          ""
+        ],
+        [ "-device", "virtio-net,netdev=inet" ],
+        [ "-device", "virtio-net,netdev=intnet" ]
+      ]
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "shell",
+      "scripts": [
+        "scripts/base.sh"
+      ],
+      "execute_command": "chmod +x {{ .Path }}; /bin/sh -c '{{ .Vars }} {{ .Path }}'"
+    }
+  ]
+}
