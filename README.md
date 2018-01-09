@@ -1,14 +1,15 @@
 ## WAT
 
-Create a **deployable image** of opensense for **google compute** or **AWS EC**.
-You build from the offiicial iso, so no tampering with the files. A customer config.xml is deployed so you can SSH
-boot into your box, see "after deployed" to see what you need to revert so you are back to the default
+Create a **deployable image** of opensense for virtualbox/kvm, **google compute** or **AWS EC**.
+You build from the official iso (which you download yourself), so no tampering with the files. 
+A custom `http/config.xml` is pre-deployed so you can SSH into your box after the first boot,
+see "after deployed" to see what you need to revert so you are back to the default.
 
 You will build using [Packer](https://www.packer.io/docs/installation.html)
 
 ## requirements
  - Install [Packer](https://www.packer.io/docs/installation.html)
- - You need to download the opnsense.iso (16.7) and unpack it into this repo as opnsense.iso
+ - You need to download the opnsense.iso (17.7) and unpack it into this repo as opnsense.iso
  
 ```
 wget https://opnsense.c0urier.net/releases/17.7/OPNsense-17.7.5-OpenSSL-dvd-amd64.iso.bz2
@@ -32,7 +33,7 @@ This is yet needed since packer cannot (yet) download and unpack isos, it only c
     
 ## after you deployed the image
 
-Of course, chaneg the configuration to your likings, but very specificly change
+Of course, change the configuration to your likings, but very specifically change
 
  - **!!!! change your root password !!!!**
  - **!!!! change your root password !!!!**
@@ -44,6 +45,15 @@ Of course, chaneg the configuration to your likings, but very specificly change
 
 Since this has been adjusted so you can deploy a cloud image at all, right :)
 
+
+## Update the image version
+
+If you want to use a newer opnsense version, you will need to
+
+ - adjust `wget https://opnsense.c0urier.net/releases/17.7/OPNsense-17.7.5-OpenSSL-dvd-amd64.iso.bz2`
+ - adjust the sha-sum in the opnsense.json in the top `iso_sha256_checksum`
+ - please create a pull request so i can update it
+   
 ## Debug
 
 add this to the vbox to be able to access the box
