@@ -49,6 +49,9 @@ Of course, change the configuration to your likings, but very specifically chang
 
 Since this has been adjusted so you can deploy a cloud image at all, right :)
 
+## Internals
+
+ - currently using MBR layout to be more supportive towards AWS, yet not working
 
 ## Update the image version
 
