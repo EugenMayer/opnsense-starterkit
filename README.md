@@ -26,9 +26,13 @@ This is yet needed since packer cannot (yet) download and unpack isos, it only c
     
     # aws
     packer build --var 'config_file=config-aws.xml' opnsense.json 
+    ./tools/package_for_cloud.sh
+    # you find your disk in output/cloud/disk.raw
 
     # gce
-    packer build --var 'config_file=config-gce.xml' opnsense.json 
+    packer build --var 'config_file=config-gce.xml' opnsense.json
+    ./tools/package_for_cloud.sh
+    # you find your disk in output/cloud/disk.raw 
     
     
 ## after you deployed the image

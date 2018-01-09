@@ -1,4 +1,4 @@
 #!/bin/sh
-opnsense upgrade
+opnsense-update
 shutdown -p now
 #echo 'autoboot_delay="0"' >> /boot/loader.conf
