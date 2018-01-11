@@ -24,7 +24,7 @@ wget https://opnsense.c0urier.net/releases/18.1/OPNsense-18.1.r1-OpenSSL-dvd-amd
 bunzip2 OPNsense-18.1.r1-OpenSSL-dvd-amd64.iso.bz2
 mv OPNsense-18.1.r1-OpenSSL-dvd-amd64.iso opnsense.iso
 
-
+# shasum -b 256 opnsense.iso
 packer build -var 'iso_sha256_checksum=6de0fe6ec3a7afdbca4d4e6b20aaefcb3ff97156ba8ab9e08d2f74826f26ccd7' opnsense.json 
 ```
 
