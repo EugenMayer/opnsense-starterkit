@@ -1,6 +1,6 @@
 ## WAT
 
-You want to either quickly try [OPNsense](https://opnsense.org) or build an image for your infrastructure.
+You want to either quickly try [OPNsense](https://opnsense.org) or build an image for your infrastructure right from the ISO / from scratch.
 
 ## Trying OPNsense
 
@@ -16,7 +16,7 @@ Now you can either access opensense using `https://localhost:10443` or by `ssh -
 Username: root
 Password: opnsense
 
-## build
+## Building yourself
 
 Create a **deployable image** of opensense for virtualbox/kvm, **google compute** or **AWS EC**.
 You build from the official iso (which you download yourself), so no tampering with the files. 
