@@ -329,6 +329,8 @@
                 <any/>
                 <port>22</port>
             </destination>
+        </rule>
+        <rule>
             <type>pass</type>
             <interface>wan</interface>
             <ipprotocol>inet</ipprotocol>
@@ -336,11 +338,11 @@
             <descr>Allow incoming WebGUI access</descr>
             <protocol>tcp</protocol>
             <source>
-              <any/>
+                <any/>
             </source>
             <destination>
-              <any/>
-              <port>443</port>
+                <any/>
+                <port>443</port>
             </destination>
         </rule>
     </filter>
