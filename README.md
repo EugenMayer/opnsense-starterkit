@@ -1,5 +1,23 @@
 ## WAT
 
+You want to either quickly try [OPNsense](https://opnsense.org) or build an image for your infrastructure.
+
+## Trying OPNsense
+
+ - Install vagrant https://www.vagrantup.com/downloads.html
+ 
+ ```
+curl -O Vagrantfile https://raw.githubusercontent.com/EugenMayer/packer-opnsense/master/Vagrantfile
+varant up opnsense
+```
+
+Now you can either access opensense using `https://localhost:10443` or by `ssh -p 2222 root@localhost`
+
+Username: root
+Password: opnsense
+
+## build
+
 Create a **deployable image** of opensense for virtualbox/kvm, **google compute** or **AWS EC**.
 You build from the official iso (which you download yourself), so no tampering with the files. 
 A custom `http/config.xml` is pre-deployed so you can SSH into your box after the first boot,
@@ -7,7 +25,7 @@ see "after deployed" to see what you need to revert so you are back to the defau
 
 You will build using [Packer](https://www.packer.io/docs/installation.html)
 
-## build
+
  - Install [Packer](https://www.packer.io/docs/installation.html)
  - You need to download the opnsense.iso (17.7) and unpack it into this repo as opnsense.iso
  
