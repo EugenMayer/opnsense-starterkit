@@ -25,6 +25,8 @@ make rm
 ```
 # What to do from here
 
+### Core development
+
 If you want to work on the core, you want to 
 
 1. Fork https://github.com/opnsense/core on github and create branch
@@ -32,6 +34,7 @@ If you want to work on the core, you want to
 3. Replace https://github.com/EugenMayer/packer-opnsense/blob/master/development/makefile#L8 with your repo and branch `-b feature/myfeature`
 4. Push your "develoment repo" on github, YourName/opnsense-featureA
 
+### Plugin development
 Should you be in need to work on a Plugin
 
 1. If you need core, changed, do the above and continue from 3
