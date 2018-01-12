@@ -1,5 +1,6 @@
 packer_cache
 development/core
+.vagrant/
 OPNsense*.iso
 opnsense*.iso
 OPNsense*.bz2

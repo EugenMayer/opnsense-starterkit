@@ -1,6 +1,5 @@
 {
   "variables": {
-    "http_host": "{{env `HTTP_DATA_HOST`}}",
     "headless": "false",
     "config_file": "config.xml",
     "iso_sha256_checksum": "29d16c6e03c2dbe1facc43d719150d91b84fa06baa834cfe8299212b52933c06",
@@ -58,10 +57,17 @@
         [ "modifyvm", "{{.Name}}", "--boot1", "disk" ],
         [ "modifyvm", "{{.Name}}", "--boot2", "dvd" ],
         [ "modifyvm", "{{.Name}}", "--audio", "none" ],
-        [ "modifyvm", "{{.Name}}", "--usb", "off" ],
-        [ "modifyvm", "{{.Name}}", "--natpf1", "managinggui,tcp,127.0.0.1,10443,,443"],
-        [ "modifyvm", "{{.Name}}", "--natpf1", "ssh,tcp,127.0.0.1,10022,,22"]
+        [ "modifyvm", "{{.Name}}", "--usb", "off" ]
+      ],
+      "post_shutdown_delay": "30s",
+      "vboxmanage_post": [
+        [ "modifyvm", "{{.Name}}", "--nic1", "intnet" ],
+        [ "modifyvm", "{{.Name}}", "--nic2", "nat" ],
+        [ "modifyvm", "{{.Name}}", "--cableconnected2", "on" ],
+        [ "modifyvm", "{{.Name}}", "--natpf2", "managinggui,tcp,127.0.0.1,10443,,443"],
+        [ "modifyvm", "{{.Name}}", "--natpf2", "ssh,tcp,127.0.0.1,10022,,22"]
       ]
+
     }
   ],
   "provisioners": [

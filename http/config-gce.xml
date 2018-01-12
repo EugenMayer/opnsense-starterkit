@@ -227,7 +227,7 @@
     <interfaces>
         <wan>
             <enable>1</enable>
-            <if>em0</if>
+            <if>em1</if>
             <ipaddr>dhcp</ipaddr>
             <dhcphostname/>
             <mtu/>
@@ -244,7 +244,7 @@
         </wan>
         <lan>
             <enable>1</enable>
-            <if>em1</if>
+            <if>em0</if>
             <ipaddr>10.1.1.1</ipaddr>
             <!--
             <ipaddr>192.168.1.1</ipaddr>
@@ -329,7 +329,8 @@
                 <any/>
                 <port>22</port>
             </destination>
-            <!--
+        </rule>
+        <rule>
             <type>pass</type>
             <interface>wan</interface>
             <ipprotocol>inet</ipprotocol>
@@ -337,13 +338,12 @@
             <descr>Allow incoming WebGUI access</descr>
             <protocol>tcp</protocol>
             <source>
-              <any/>
+                <any/>
             </source>
             <destination>
-              <any/>
-              <port>443</port>
+                <any/>
+                <port>443</port>
             </destination>
-            -->
         </rule>
     </filter>
     <rrd>
