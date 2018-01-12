@@ -50,3 +50,18 @@ Should you be in need to work on a Plugin
       rsync__chown: false,
       rsync__exclude: "./core/.git/"
 ```
+## During development
+
+### Plugins
+
+Install a plugin by 
+
+```
+vagrant ssh -c "cd /root/plugins/net/freeradius && make package && pkg add work/pkg/*.txz"
+```
+
+When you change source locally run
+
+```
+vagrant rsync && vagrant ssh -c "cd /root/plugins/net/freeradius && make package && pkg add work/pkg/*.txz"
+```
