@@ -8,7 +8,7 @@ You want to either quickly try [OPNsense](https://opnsense.org) or build an imag
  
  ```
 curl -o Vagrantfile https://raw.githubusercontent.com/EugenMayer/packer-opnsense/master/Vagrantfile
-varant up opnsense
+vagrant up opnsense
 ```
 
 Now you can either access opensense using `https://localhost:10443` or by `ssh -p 2222 root@localhost`
