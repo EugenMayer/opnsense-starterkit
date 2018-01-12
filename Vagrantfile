@@ -9,8 +9,7 @@ Vagrant.configure("2") do |config|
   config.ssh.username = "root"
   # we need to use rsync, no vbox drivers for bsd
   # we do not have the group root on freebsd
-  config.vm.synced_folder "./src", "/vagrant", type: "rsync",
-    rsync__chown: false
+  config.vm.synced_folder "./src", "/vagrant", disabled: true
   config.vm.define 'opnsense', autostart: false do |test|
     test.vm.provider 'virtualbox' do |vb|
       vb.customize ['modifyvm',:id, '--nic1', 'intnet', '--nic2', 'nat'] # swap the networks around
