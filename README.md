@@ -1,6 +1,10 @@
 ## WAT
 
-You want to either quickly try [OPNsense](https://opnsense.org) or build an image for your infrastructure right from the ISO / from scratch.
+You want to either quickly 
+
+1. try [OPNsense](https://opnsense.org).  See blow 'Trying OPNsense'
+2. or build an image for your infrastructure right from the ISO / from scratch. See blow 'Building yourself'
+3. Or start developing opnsense with one line, see [the development quicksetup guide](https://github.com/EugenMayer/packer-opnsense/tree/master/development)
 
 ## Trying OPNsense
 
@@ -29,6 +33,7 @@ You will build using [Packer](https://www.packer.io/docs/installation.html)
 
  - Install [Packer](https://www.packer.io/docs/installation.html)
  - You need to download the opnsense.iso (17.7) and unpack it into this repo as opnsense.iso
+ 
  
 ### 17.7
 
