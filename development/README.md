@@ -2,16 +2,26 @@
 
 This is just the fastes way to bring up a development ready opnsense box for you to start with
 
-   make start
+### Start
+```
+make start
+```
 
-You can know go ahead an change anything in this `./core` to change the code of the running opnsense. Thats it!
-Its all on you now :)
+1. You can know go ahead an change anything in this `./core` right in this folder locally.
+2. It will get synced and be reflected in the running instance. Thats it!
+3. Its all on you now :)
 
+### Stop ( pause )
 To stop the vm ( not losing state, continue later )
-   
-   make stop
+```   
+make stop
+```
 
+
+
+### Rm ( end, remove all )
 To remove the VM
-
-   make rm
+```
+make rm
+````
 
