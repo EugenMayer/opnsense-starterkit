@@ -1,4 +1,5 @@
 packer_cache
+development/core
 OPNsense*.iso
 opnsense*.iso
 OPNsense*.bz2
