@@ -9,7 +9,7 @@ checkout:
 
 
 stop:
-	vagrant stop
+	vagrant suspend
 
 rm:	
 	vagrant destroy
