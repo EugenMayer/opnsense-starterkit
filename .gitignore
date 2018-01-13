@@ -1,8 +1,8 @@
-packer_cache
+build/packer_cache
 development/core
 .vagrant/
-OPNsense*.iso
-opnsense*.iso
-OPNsense*.bz2
-output
+build/OPNsense*.iso
+build/opnsense*.iso
+build/OPNsense*.bz2
+build/output
 .idea/workspace.xml
