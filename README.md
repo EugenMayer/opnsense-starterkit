@@ -3,7 +3,7 @@
 You want to either quickly 
 
 1. try [OPNsense](https://opnsense.org).  See blow 'Trying OPNsense'
-2. or build an image for your infrastructure right from the ISO / from scratch. See blow 'Building yourself'
+2. or build an image for your infrastructure right from the ISO / from scratch. See [the build guide](https://github.com/EugenMayer/packer-opnsense/tree/master/build)
 3. Or start developing opnsense with one line, see [the development quicksetup guide](https://github.com/EugenMayer/packer-opnsense/tree/master/development)
 4. Test the current most rest opnsense development version without any effort? Check [the development quicksetup guide](https://github.com/EugenMayer/packer-opnsense/tree/master/development) - you get a "from source" version after running 1 command
 
