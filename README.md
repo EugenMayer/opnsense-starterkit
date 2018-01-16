@@ -21,3 +21,5 @@ Now you can either access opensense using `https://localhost:10443` or by `ssh -
 
 Username: root
 Password: opnsense
+
+To see which versions are available, check https://app.vagrantup.com/eugenmayer/boxes/opnsense
