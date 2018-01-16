@@ -4,5 +4,6 @@ development/core
 build/OPNsense*.iso
 build/opnsense*.iso
 build/OPNsense*.bz2
+build/*.box
 build/output
 .idea/workspace.xml
