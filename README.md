@@ -17,7 +17,7 @@ curl -o Vagrantfile https://raw.githubusercontent.com/EugenMayer/packer-opnsense
 vagrant up opnsense
 ```
 
-Now you can either access opensense using `https://localhost:10443` or by `ssh -p 2222 root@localhost`
+Now you can either access OPNsense using `https://localhost:10443` or by `ssh -p 10022 root@localhost`
 
 Username: root
 Password: opnsense
