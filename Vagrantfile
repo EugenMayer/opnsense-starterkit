@@ -19,4 +19,5 @@ Vagrant.configure("2") do |config|
       vb.customize ['modifyvm', :id, '--natpf2', "ssh,tcp,127.0.0.1,2222,,22" ] #port forward
       vb.customize ['modifyvm', :id, '--natpf2', "https,tcp,127.0.0.1,10443,,443" ] #port forward
     end
+  end  
 end
