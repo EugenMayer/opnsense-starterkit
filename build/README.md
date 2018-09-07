@@ -30,11 +30,22 @@ wget https://opnsense.c0urier.net/releases/18.1/OPNsense-18.1-OpenSSL-dvd-amd64.
 bunzip2 OPNsense-18.1-OpenSSL-dvd-amd64.iso.bz2
 mv OPNsense-18.1-OpenSSL-dvd-amd64.iso opnsense.iso
 
-# shasum -a 256 opnsense.iso
+shasum -a 256 opnsense.iso
 packer build -var 'iso_sha256_checksum=58ccaf06aa7d14b13d3462a6aa157c265962313c040b6d033ea76546340670e2' opnsense.json 
 ```
 
 This is yet needed since packer cannot (yet) download and unpack isos, it only can download non-archived isos
+
+### 18.7
+
+```
+cd build
+wget https://opnsense.c0urier.net/releases/18.7/OPNsense-18.7-OpenSSL-dvd-amd64.iso.bz2
+bunzip2 OPNsense-18.7-OpenSSL-dvd-amd64.iso.bz2
+mv OPNsense-18.1-OpenSSL-dvd-amd64.iso opnsense.iso
+shasum -a 256 opnsense.iso
+packer build -var 'iso_sha256_checksum=63c80d66c4de4eaf7c4d98976855112ad097f63dac06ba59a55fa40496de384a' opnsense.json 
+```
 
 ## Accessing 
 
