@@ -13,7 +13,7 @@
       "skip_export": false,
       "boot_command": [
         "<wait10><wait10><wait10><wait10><wait10>",
-        "<wait10><wait10><wait10><wait10>",
+        "<wait10><wait10><wait10><wait10><wait10><wait10><wait10><wait10>",
         "installer<enter>",
         "opnsense<enter><wait10>",
         "<enter>",
@@ -25,6 +25,9 @@
         "<enter>",
         "<enter>",
         "<enter>",
+        "<enter>",
+        "<wait10><wait10><wait10><wait10><wait10><wait10><wait10><wait10><wait10><wait10><wait10><wait10><wait10><wait10>",
+        "<wait10><wait10><wait10><wait10><wait10>",
         "<enter>",
         "<wait10><wait10><wait10><wait10><wait10><wait10>",
         "root<enter>",
