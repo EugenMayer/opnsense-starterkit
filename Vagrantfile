@@ -14,9 +14,9 @@ Vagrant.configure("2") do |config|
     test.vm.provider 'virtualbox' do |vb|
       # since opnsense expects nic1 (first) to be LAN, lets make it intnet
       # nic2 is wan, so we are doing nat ( routed to the host )
-      vb.customize ['modifyvm',:id, '--nic1', 'intnet', '--nic2', 'nat'] # swap the networks around
+      vb.customize ['modifyvm',:id, '--nic1', 'nat', '--nic2', 'nat'] # swap the networks around
       # we forward the ports to the WebGUI/ssh since we use a nat network
-      vb.customize ['modifyvm', :id, '--natpf2', "ssh,tcp,127.0.0.1,2222,,22" ] #port forward
+      vb.customize ['modifyvm', :id, '--natpf2', "ssh,tcp,127.0.0.1,10022,,22" ] #port forward
       vb.customize ['modifyvm', :id, '--natpf2', "https,tcp,127.0.0.1,10443,,443" ] #port forward
     end
   end  
