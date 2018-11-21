@@ -42,7 +42,7 @@ This is yet needed since packer cannot (yet) download and unpack isos, it only c
 cd build
 wget https://opnsense.c0urier.net/releases/18.7/OPNsense-18.7-OpenSSL-dvd-amd64.iso.bz2
 bunzip2 OPNsense-18.7-OpenSSL-dvd-amd64.iso.bz2
-mv OPNsense-18.1-OpenSSL-dvd-amd64.iso opnsense.iso
+mv OPNsense-18.7-OpenSSL-dvd-amd64.iso opnsense.iso
 shasum -a 256 opnsense.iso
 packer build -var 'iso_sha256_checksum=63c80d66c4de4eaf7c4d98976855112ad097f63dac06ba59a55fa40496de384a' opnsense.json 
 ```
