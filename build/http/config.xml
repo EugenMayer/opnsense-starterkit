@@ -227,7 +227,7 @@
     <interfaces>
         <wan>
             <enable>1</enable>
-            <if>em1</if>
+            <if>em0</if>
             <ipaddr>dhcp</ipaddr>
             <dhcphostname/>
             <mtu/>
@@ -244,12 +244,13 @@
         </wan>
         <lan>
             <enable>1</enable>
-            <if>em0</if>
-            <ipaddr>10.2.0.1</ipaddr>
+            <if>em1</if>
+            <ipaddr>dhcp</ipaddr>
+            <subnet/>
             <!--
             <ipaddr>192.168.1.1</ipaddr>
-            -->
             <subnet>24</subnet>
+            -->
             <ipaddrv6>track6</ipaddrv6>
             <subnetv6>64</subnetv6>
             <media/>
@@ -258,19 +259,6 @@
             <track6-prefix-id>0</track6-prefix-id>
         </lan>
     </interfaces>
-    <dhcpd>
-        <lan>
-            <enable/>
-            <range>
-                <from>10.2.0.2</from>
-                <to>10.2.0.200</to>
-                <!--
-                <from>192.168.1.100</from>
-                <to>192.168.1.199</to>
-                -->
-            </range>
-        </lan>
-    </dhcpd>
     <unbound>
         <enable>1</enable>
         <dnssec>1</dnssec>
