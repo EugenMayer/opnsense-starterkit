@@ -245,7 +245,6 @@
         <lan>
             <enable>1</enable>
             <if>em1</if>
-            <ipaddr>dhcp</ipaddr>
             <ipaddr>192.168.1.1</ipaddr>
             <subnet>24</subnet>
             <ipaddrv6>track6</ipaddrv6>
