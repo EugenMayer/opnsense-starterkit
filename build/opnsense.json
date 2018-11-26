@@ -63,9 +63,7 @@
         [ "modifyvm", "{{.Name}}", "--nic2", "nat" ],
         [ "modifyvm", "{{.Name}}", "--cableconnected2", "on" ],
         [ "modifyvm", "{{.Name}}", "--natpf2", "managinggui,tcp,127.0.0.1,10443,,443"],
-        [ "modifyvm", "{{.Name}}", "--natpf2", "ssh,tcp,127.0.0.1,10022,,22"]
       ]
-
     }
   ],
   "provisioners": [
