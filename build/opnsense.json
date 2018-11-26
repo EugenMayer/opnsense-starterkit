@@ -62,7 +62,7 @@
         [ "modifyvm", "{{.Name}}", "--nic1", "nat" ],
         [ "modifyvm", "{{.Name}}", "--nic2", "intnet" ],
         [ "modifyvm", "{{.Name}}", "--cableconnected2", "on" ],
-        [ "modifyvm", "{{.Name}}", "--natpf2", "managinggui,tcp,127.0.0.1,10443,,443"],
+        [ "modifyvm", "{{.Name}}", "--natpf1", "managinggui,tcp,127.0.0.1,10443,,443"]
       ]
     }
   ],
