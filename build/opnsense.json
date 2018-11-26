@@ -59,8 +59,8 @@
       ],
       "post_shutdown_delay": "30s",
       "vboxmanage_post": [
-        [ "modifyvm", "{{.Name}}", "--nic1", "intnet" ],
-        [ "modifyvm", "{{.Name}}", "--nic2", "nat" ],
+        [ "modifyvm", "{{.Name}}", "--nic1", "nat" ],
+        [ "modifyvm", "{{.Name}}", "--nic2", "intnet" ],
         [ "modifyvm", "{{.Name}}", "--cableconnected2", "on" ],
         [ "modifyvm", "{{.Name}}", "--natpf2", "managinggui,tcp,127.0.0.1,10443,,443"],
       ]
