@@ -69,7 +69,7 @@
     {
       "type": "shell",
       "scripts": [
-        "scripts/base.sh"        [ "modifyvm", "{{.Name}}", "--cableconnected2", "on" ],
+        "scripts/base.sh"
       ],
       "execute_command": "chmod +x {{ .Path }}; /bin/sh -c '{{ .Vars }} {{ .Path }}'"
     }
