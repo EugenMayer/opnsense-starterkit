@@ -61,7 +61,6 @@
       "vboxmanage_post": [
         [ "modifyvm", "{{.Name}}", "--nic1", "nat" ],
         [ "modifyvm", "{{.Name}}", "--nic2", "intnet" ],
-        [ "modifyvm", "{{.Name}}", "--cableconnected2", "on" ],
         [ "modifyvm", "{{.Name}}", "--natpf1", "managinggui,tcp,127.0.0.1,10443,,443"]
       ]
     }
@@ -70,7 +69,7 @@
     {
       "type": "shell",
       "scripts": [
-        "scripts/base.sh"
+        "scripts/base.sh"        [ "modifyvm", "{{.Name}}", "--cableconnected2", "on" ],
       ],
       "execute_command": "chmod +x {{ .Path }}; /bin/sh -c '{{ .Vars }} {{ .Path }}'"
     }
