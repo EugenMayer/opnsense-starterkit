@@ -59,7 +59,9 @@
       ],
       "post_shutdown_delay": "30s",
       "vboxmanage_post": [
+        [ "modifyvm", "{{.Name}}", "--nictype1", "virtio" ],
         [ "modifyvm", "{{.Name}}", "--nic1", "nat" ],
+        [ "modifyvm", "{{.Name}}", "--nictype2", "virtio" ],
         [ "modifyvm", "{{.Name}}", "--nic2", "intnet" ],
         [ "modifyvm", "{{.Name}}", "--natpf1", "managinggui,tcp,127.0.0.1,10443,,443"]
       ]
