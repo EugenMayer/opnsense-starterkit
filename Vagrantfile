@@ -6,8 +6,12 @@ Vagrant.configure("2") do |config|
   config.ssh.shell = "/bin/sh"
   config.ssh.password = "opnsense"
   config.ssh.username = "root"
+  
   # we do not need the default sync folder at all
   config.vm.synced_folder ".", "/vagrant", disabled: true
+  
+  # do not install guest additions
+  config.vbguest.auto_update = false
 
   config.vm.define 'opnsense', autostart: false do |test|
     # setup network
