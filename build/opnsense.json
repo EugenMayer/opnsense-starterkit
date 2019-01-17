@@ -5,7 +5,7 @@
     "iso_sha256_checksum": "29d16c6e03c2dbe1facc43d719150d91b84fa06baa834cfe8299212b52933c06",
     "iso_url": "./opnsense.iso",
     "disk_size": "8192",
-    "template_name": "./opnsense_base.vagrantfile"
+    "vagrantfile_template": "./opnsense_base.vagrantfile"
   },
   "builders": [
     {
