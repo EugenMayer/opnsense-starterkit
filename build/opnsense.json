@@ -9,6 +9,7 @@
   },
   "builders": [
     {
+      "guest_additions_mode": "disable",
       "headless": "{{ user `headless` }}",
       "keep_registered": false,
       "skip_export": false,
