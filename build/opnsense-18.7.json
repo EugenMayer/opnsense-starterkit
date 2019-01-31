@@ -30,7 +30,6 @@
         "<wait10><wait10><wait10><wait10><wait10>",
         "<enter>",
         "<wait10><wait10><wait10><wait10><wait10><wait10>",
-        "<wait10><wait10><wait10><wait10><wait10><wait10>",
         "root<enter>",
         "opnsense<enter>",
         "<wait>8<enter>",
@@ -82,7 +81,5 @@
       ],
       "execute_command": "chmod +x {{ .Path }}; /bin/sh -c '{{ .Vars }} {{ .Path }}'"
     }
-  ],
-  "post-processors": ["vagrant"]
+  ]
 }
-
