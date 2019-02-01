@@ -1,5 +1,8 @@
 VERSION := 'na'
 
+clean:
+	rm OPNsense-*.iso
+
 opnsense-vagrant: VERSION := 19.1
 opnsense-vagrant: SHASUM := 58bf2f0ae7948791589cd11727a5daa270bf00f655d8defe0a43140d920e8065
 opnsense-vagrant:
