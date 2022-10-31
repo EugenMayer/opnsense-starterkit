@@ -3,8 +3,8 @@ VERSION := 'na'
 clean:
 	rm OPNsense-*.iso
 
-opnsense-vagrant: VERSION := 19.1
-opnsense-vagrant: SHASUM := 58bf2f0ae7948791589cd11727a5daa270bf00f655d8defe0a43140d920e8065
+opnsense-vagrant: VERSION := 22.7
+opnsense-vagrant: SHASUM := e551195a59422d926c090be741bc25b8dbeea5491791bcdffff0de6da07a4941
 opnsense-vagrant:
 	[[ -e "OPNsense-$(VERSION)-OpenSSL-dvd-amd64.iso" ]] || (wget https://opnsense.c0urier.net/releases/$(VERSION)/OPNsense-$(VERSION)-OpenSSL-dvd-amd64.iso.bz2 && bunzip2 OPNsense-$(VERSION)-OpenSSL-dvd-amd64.iso.bz2)
 	packer build -var "iso_sha256_checksum=$(SHASUM)" -var "iso_url=OPNsense-$(VERSION)-OpenSSL-dvd-amd64.iso" opnsense-vagrant.json
